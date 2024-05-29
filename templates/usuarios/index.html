@@ -13,17 +13,16 @@
 </head>
 <body>
 <div class="container">
-        <form action="/fit-cultural/" method="post" >
+        <form action="" method="" >
             {% csrf_token %}
-            <div class="mb-3">
-                <label for="nome"  class="form-label">Primeiro Nome</label>
-                <input type="text" class="form-control" name="nome" id="nome">
+        <div class="row">
+            {% for field in form.visible_fields %}
+            <div class="col-12 col-lg-12" style="margin-bottom: 10px;">
+                <label for="{{ field.id_for_label }}" style="color:#D9D9D9; margin-bottom: 5px;">{{field.label}}</label>
+                {{ field }}
             </div>
-            <div class="mb-3">
-                <label for="data"  class="form-label">Data de Nascimento</label>
-                <input type="date" class="form-control" name="data" id="data">
-            </div>
-                <button type="submit" class="btn btn-primary">Registrar</button>
+            {% endfor %}
+        </div>
         </form>
 </div>
 </body>
