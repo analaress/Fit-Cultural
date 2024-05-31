@@ -1,0 +1,28 @@
+h1 {
+    color: #6283F8! important;
+    font-family: Arial;
+}
+
+.row label {
+    color: black;
+    font-weight: bold;
+    font-weight: 500;
+}
+
+/*   Estilização do botão    */
+
+button {
+    background-color: #6283F8;
+    border: none;
+    color: white;
+    padding: 8px;
+    font-size: 16px;
+    width: 150px;
+}
+
+button:hover {
+    background-color: #5075ed;
+}
+.row-button {
+    justify-items: center;
+}

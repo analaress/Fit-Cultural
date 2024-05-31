@@ -118,10 +118,9 @@ USE_TZ = True
 STATIC_URL = 'static/'
 
 STATICFILES_DIRS = [
-    BASE_DIR / 'core/static',
-
+    BASE_DIR / 'base_static',
 ]
-STATIC_URL_ROOT = 'static_base'
+
 STATIC_ROOT = BASE_DIR / 'static'
 
 
