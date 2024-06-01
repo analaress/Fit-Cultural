@@ -9,9 +9,10 @@ h1 {
     font-weight: 500;
 }
 
+
 /*   Estilização do botão    */
 
-button {
+.button-custom {
     background-color: #6283F8;
     border: none;
     color: white;
@@ -20,7 +21,7 @@ button {
     width: 150px;
 }
 
-button:hover {
+.button-custom:hover {
     background-color: #5075ed;
 }
 .row-button {

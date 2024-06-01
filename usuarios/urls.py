@@ -1,7 +1,7 @@
 from django.urls import path
-from usuarios.views import LoginIndexView, CadastroIndexView
+from usuarios.views import loginIndexView, cadastroIndexView
 
 urlpatterns = [
-    path("", LoginIndexView, name="index"),
-    path("cadastro", CadastroIndexView, name="cadastro")
+    path("", loginIndexView, name="index"),
+    path("cadastro", cadastroIndexView, name="cadastro")
 ]

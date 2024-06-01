@@ -1,6 +1,6 @@
 from django import forms
 
-class LoginForms(forms.Form):
+class LoginForm(forms.Form):
     nome_login=forms.CharField(
         label='Login',
         required=True,
@@ -25,7 +25,7 @@ class LoginForms(forms.Form):
         ),
     )
 
-class CadastroForms(forms.Form):
+class CadastroForm(forms.Form):
     nome_cadastro=forms.CharField(
         label='Nome Completo',
         required=True,
