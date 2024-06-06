@@ -1,16 +1,23 @@
 from django import forms
+from django.core.validators import RegexValidator
 
 class LoginForm(forms.Form):
-    nome_login=forms.CharField(
-        label='Login',
+    cpf=forms.CharField(
+        label='CPF',
         required=True,
-        max_length=100,
+        max_length=14,
         widget=forms.TextInput(
             attrs={
                 "class": "form-control",
-                "placeholder": "Ex.: DavidOcker",
+                "placeholder": "Ex.: 000.000.000-00",
             }
         ),
+        validators=[
+            RegexValidator(
+                regex=r'^\d{3}\.\d{3}\.\d{3}-\d{2}$',
+                message='O CPF deve estar no formato 000.000.000-00',
+            ),
+        ],
     )
 
     senha=forms.CharField(
@@ -46,6 +53,18 @@ class CadastroForm(forms.Form):
             attrs={
                 "class": "form-control",
                 "placeholder": "davidocker@gmail.com"
+            }
+        )
+    )
+
+    cpf=forms.CharField(
+        label='CPF',
+        required=True,
+        max_length=14,
+        widget=forms.TextInput(
+            attrs={
+                "class": "form-control",
+                "placeholder": "Ex.: 000.000.000-00",
             }
         )
     )
