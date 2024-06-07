@@ -1,24 +1,32 @@
 from django import forms
-from django.core.validators import RegexValidator
+from localflavor.br.forms import BRCPFField
+from localflavor.br.validators import BRCPFValidator
+
+
 
 class LoginForm(forms.Form):
-    cpf=forms.CharField(
+    cpf = forms.CharField(
         label='CPF',
-        required=True,
-        max_length=14,
+        validators=[BRCPFValidator()],
         widget=forms.TextInput(
             attrs={
                 "class": "form-control",
-                "placeholder": "Ex.: 000.000.000-00",
+                "placeholder": "Digite seu CPF",
             }
         ),
-        validators=[
-            RegexValidator(
-                regex=r'^\d{3}\.\d{3}\.\d{3}-\d{2}$',
-                message='O CPF deve estar no formato 000.000.000-00',
-            ),
-        ],
     )
+
+    # cpf=forms.CharField(
+    #     label='CPF',
+    #     required=True,
+    #     max_length=14,
+    #     widget=forms.TextInput(
+    #         attrs={
+    #             "class": "form-control",
+    #             "placeholder": "Ex.: 000.000.000-00",
+    #         }
+    #     ),
+
 
     senha=forms.CharField(
         label='Senha',
@@ -92,3 +100,13 @@ class CadastroForm(forms.Form):
             }
         ),
     )
+
+    def clean_confirma_senha(self):
+        senha = self.cleaned_data.get('senha')
+        confirma_senha = self.cleaned_data.get('confirma_senha')
+
+        if senha and confirma_senha:
+            if senha != confirma_senha:
+                raise forms.ValidationError('As senhas digitadas não são iguais')
+            else:
+                return confirma_senha

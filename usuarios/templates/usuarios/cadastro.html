@@ -51,11 +51,17 @@
                             {{ form.confirma_senha.label_tag }}
                             {{ form.confirma_senha }}
                         </div>
+                        {% for error in field.errors %}
+                            <div class="alert alert-danger">
+                            {{ error }}
+                            </div>
+                        {% endfor %}
                     </div>
                     <div class="row col-sm-10 justify-content-end">
                         <button class="button-custom"  style="margin-top: 40px" type="submit">Cadastrar</button>
                     </div>
                 </form>
+
             </section>
         </main>
     </div>

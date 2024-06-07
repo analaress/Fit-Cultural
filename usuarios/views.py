@@ -39,11 +39,6 @@ def cadastroIndexView(request):
         form = CadastroForm(request.POST)
 
         if form.is_valid():
-            if form['senha'].value() != form['confirma_senha'].value():
-                messages.error(request, "As senha digitadas não são iguais!")
-                return redirect('cadastro')
-
-
             nome=form["nome_cadastro"].value()
             email=form["email"].value()
             senha=form["senha"].value()
