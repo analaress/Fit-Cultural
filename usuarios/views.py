@@ -12,6 +12,7 @@ def loginIndexView(request):
 
         if form.is_valid():
             cpf=form['cpf'].value()
+            print('form valido')
             senha=form['senha'].value()
 
             usuario = auth.authenticate(
@@ -28,6 +29,7 @@ def loginIndexView(request):
             else:
                 messages.error(request, f"O login digitado não existe!")
                 return redirect('index')
+        print(form.errors)
 
 
     return render(request, 'usuarios/index.html', {"form": form})
