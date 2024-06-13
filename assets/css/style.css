@@ -24,6 +24,7 @@ h1 {
 .button-custom:hover {
     background-color: #5075ed;
 }
+
 .row-button {
     justify-items: center;
 }

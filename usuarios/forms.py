@@ -9,6 +9,7 @@ class DadosUsuarioForm(forms.ModelForm):
 
 
 
+
 class LoginForm(forms.Form):
 
     cpf=forms.CharField(
