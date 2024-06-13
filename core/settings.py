@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'usuarios',
 ]
 
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -110,6 +111,8 @@ TIME_ZONE = 'America/Araguaina'
 USE_I18N = True
 
 USE_TZ = True
+
+# AUTH_USER_MODEL = "usuarios.Usuario"
 
 
 # Static files (CSS, JavaScript, Images)

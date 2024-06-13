@@ -1,4 +1,13 @@
 from django import forms
+from usuarios.models import DadosUsuario
+
+
+class DadosUsuarioForm(forms.ModelForm):
+    class Meta:
+        model = DadosUsuario
+        fields = ['user', 'cpf', 'data_nascimento', 'logradouro', 'bairro', 'cidade', 'uf']
+
+
 
 class LoginForm(forms.Form):
 
@@ -58,7 +67,7 @@ class CadastroForm(forms.Form):
         widget=forms.TextInput(
             attrs={
                 "class": "form-control",
-                "placeholder": "Ex.: 000.000.000-00",
+                "placeholder": "Digite seu CPF",
             }
         )
     )
@@ -90,7 +99,6 @@ class CadastroForm(forms.Form):
     def clean_confirma_senha(self):
         senha = self.cleaned_data.get('senha')
         confirma_senha = self.cleaned_data.get('confirma_senha')
-        print('passou aqui')
         if senha and confirma_senha:
             if senha != confirma_senha:
                 raise forms.ValidationError('As senhas digitadas não são iguais')

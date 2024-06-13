@@ -3,6 +3,8 @@ from usuarios.forms import LoginForm, CadastroForm
 from django.contrib.auth.models import User
 from django.contrib import auth
 from django.contrib import messages
+# from .models import Usuario
+
 
 def loginIndexView(request):
     form = LoginForm()
@@ -12,7 +14,6 @@ def loginIndexView(request):
 
         if form.is_valid():
             cpf=form['cpf'].value()
-            print('form valido')
             senha=form['senha'].value()
 
             usuario = auth.authenticate(
@@ -34,7 +35,7 @@ def loginIndexView(request):
 
     return render(request, 'usuarios/index.html', {"form": form})
 
-def cadastroIndexView(request):
+def cadastroView(request):
     form = CadastroForm()
 
     if request.method == 'POST':
@@ -66,3 +67,7 @@ def logout(request):
     auth.logout(request)
     messages.success(request, 'Logout efetuado com sucesso')
     return redirect('index')
+
+# def listaUsuarios(request):
+#     usuarios = Usuario.objects.all()
+#     return render(request, 'usuarios/lista.html', {'usuarios': usuarios})
